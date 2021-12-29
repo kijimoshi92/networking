@@ -1,0 +1,5 @@
+##Bridge config
+/interface bridge
+add arp=proxy-arp name=LAN
+/interface
+:foreach i in [find (!(name~".1") and !(name~"LAN"))] do={bridge port add bridge="LAN" interface=[/interface get $i name]}
