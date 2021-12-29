@@ -1,0 +1,24 @@
+
+### Provisioning L3
+ip ap = dhcp
+ssh ubnt@ip-ap
+password: ubnt
+#set-inform http://ip-controller:8080/inform
+contine setup in web controller
+all done;
+
+### Dhcp Option43
+# convert ip to HEX
+https://www.browserling.com/tools/ip-to-hex
+
+/ip dhcp-server option add code=43 name=unifi value=0x0104C0A8030A
+/ip dhcp-server network set 0 dhcp-option=unifi
+
+# Why 0104C0A8030A ?
+# 01: suboption
+# 04: length of the payload (must be 4)
+# C0A8030A: 192.168.3.10
+
+add option to dhcp server where live AP;
+reboot ap;
+if everything is correct then the device will appear in the web controller
