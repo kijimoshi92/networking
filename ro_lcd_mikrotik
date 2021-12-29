@@ -1,0 +1,7 @@
+#set LCD mikrotik read only. Only informative slideshow
+/lcd
+set backlight-timeout=never default-screen=informative-slideshow read-only-mode=yes touch-screen=disabled/lcd screen
+set 0 disabled=yes
+set 1 disabled=yes
+set 2 disabled=yes
+set 5 disabled=yes
